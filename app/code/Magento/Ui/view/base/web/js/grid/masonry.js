@@ -95,6 +95,7 @@ define([
          * @return {Object}
          */
         initComponent: function (rows) {
+            console.log('Initializing component...');
             if (!rows.length) {
                 return;
             }
@@ -123,7 +124,8 @@ define([
          * Set layout styles inside the container
          */
         setLayoutStyles: function () {
-            var containerWidth = parseInt(this.container.clientWidth, 10),
+            console.log('Setting layout styles...');
+            var containerWidth = parseInt($('[data-id="' + this.containerId + '"]')[0].clientWidth, 10),
                 rowImages = [],
                 ratio = 0,
                 rowHeight = 0,
@@ -135,6 +137,7 @@ define([
 
             this.rows().forEach(function (image, index) {
                 ratio += parseFloat((image.width / image.height).toFixed(2));
+                // if (index == 0) console.log({ratio});
                 rowImages.push(image);
 
                 if (ratio < this.minRatio && index + 1 !== this.rows().length) {
@@ -154,6 +157,16 @@ define([
                 rowNumber++;
 
             }.bind(this));
+
+            console.log({containerWidth: parseInt($('[data-id="' + this.containerId + '"]')[0].clientWidth, 10)});
+
+            setTimeout(function () {
+                console.log({containerWidth});
+                console.log({containerWidth: parseInt($('[data-id="' + this.containerId + '"]')[0].clientWidth, 10)});
+                if (parseInt($('[data-id="' + this.containerId + '"]')[0].clientWidth, 10) !== containerWidth) {
+                    this.setLayoutStyles();
+                }
+            }.bind(this), 1);
         },
 
         /**
@@ -165,10 +178,12 @@ define([
          * @param {Boolean} isLastRow
          */
         assignImagesToRow: function (images, rowNumber, rowHeight, isLastRow) {
-            var imageWidth;
+            var imageWidth, ratio;
 
             images.forEach(function (img) {
-                imageWidth = rowHeight * (img.width / img.height).toFixed(2);
+                ratio = parseFloat((img.width / img.height).toFixed(2));
+                imageWidth = rowHeight * ratio;
+                // if (rowNumber == 1) console.log({rowHeight, imageWidth});
                 this.setImageStyles(img, imageWidth, rowHeight);
                 this.setImageClass(img, {
                     bottom: isLastRow
