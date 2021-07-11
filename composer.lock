@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a4e34beb35968c02cd607446b062e3d",
+    "content-hash": "33e0bc9b4828e21852a0fba44525893c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -247,16 +247,16 @@
         },
         {
             "name": "colinmollenhour/credis",
-            "version": "1.11.1",
+            "version": "v1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/credis.git",
-                "reference": "bd1da4698ab1918477f9e71e5ff0062b9a345008"
+                "reference": "c27faa11724229986335c23f4b6d0f1d8d6547fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/bd1da4698ab1918477f9e71e5ff0062b9a345008",
-                "reference": "bd1da4698ab1918477f9e71e5ff0062b9a345008",
+                "url": "https://api.github.com/repos/colinmollenhour/credis/zipball/c27faa11724229986335c23f4b6d0f1d8d6547fb",
+                "reference": "c27faa11724229986335c23f4b6d0f1d8d6547fb",
                 "shasum": ""
             },
             "require": {
@@ -283,7 +283,11 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2019-11-26T18:09:45+00:00"
+            "support": {
+                "issues": "https://github.com/colinmollenhour/credis/issues",
+                "source": "https://github.com/colinmollenhour/credis/tree/v1.12.1"
+            },
+            "time": "2020-11-06T16:09:14+00:00"
         },
         {
             "name": "colinmollenhour/php-redis-session-abstract",
